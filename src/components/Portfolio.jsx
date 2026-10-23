@@ -33,26 +33,26 @@ const Portfolio = () => {
   return (
     <div
       name="portfolio"
-      className="bg-gradient-to-b from-black to-gray-800 w-full text-white py-16"
+      className="bg-gradient-to-b from-[#070b16] via-[#0a1022] to-[#080d1a] w-full text-white py-20 relative overflow-hidden"
     >
       <div className="max-w-screen-xl mx-auto px-6">
         
         {/* Heading */}
         <div className="pb-10 text-center md:text-left">
-          <p className="text-4xl font-bold inline border-b-4 border-gray-500">
+          <p className="text-4xl font-bold inline border-b-4 border-blue-500">
             Portfolio
           </p>
-          <p className="py-4 text-gray-300">
-            Check out some of my work right here
+          <p className="py-4 text-slate-300">
+            Check out some of my featured work and deployments
           </p>
         </div>
 
         {/* Cards Grid */}
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {portfolios.map(({ id, src, link, repo, title, desc }) => (
             <div
               key={id}
-              className="rounded-xl overflow-hidden bg-gray-900 shadow-md shadow-gray-700 hover:shadow-lg hover:shadow-gray-600 transition duration-300"
+              className="rounded-2xl overflow-hidden bg-[#0c1427]/90 border border-slate-700/60 shadow-xl hover:shadow-2xl hover:border-blue-500/50 transition duration-300 flex flex-col justify-between"
             >
               <img
                 src={src}
