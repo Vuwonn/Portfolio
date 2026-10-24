@@ -62,7 +62,10 @@ const About = () => {
                 <div className="rounded-2xl bg-[#0a1020]/60 p-2 sm:p-3 flex items-center justify-center">
                   <img
                     src={HeroImage}
-                    alt="Bhuwan Chaudhary - About Me"
+                    alt="Bhuwan Chaudhary - Full Stack Developer"
+                    width="400"
+                    height="400"
+                    loading="lazy"
                     className="w-full h-auto object-cover rounded-xl filter drop-shadow-xl group-hover:scale-[1.02] transition duration-300"
                   />
                 </div>
@@ -83,11 +86,11 @@ const About = () => {
 
             <div className="space-y-5 text-slate-300 text-base sm:text-lg leading-relaxed">
               <p>
-                I'm a Full Stack Software Engineer DevOps Enthusiast with a diverse background in creating efficient and scalable infrastructure solutions. My expertise in automating processes and optimizing performance ensures that systems run smoothly and reliably.
+                I'm a Full Stack Software Engineer and DevOps Enthusiast with a strong foundation in building scalable, resilient infrastructure and high-performance web applications. My expertise spans both frontend and backend architectures, with a keen focus on automating deployments, optimizing databases, and orchestrating cloud services.
               </p>
 
               <p>
-                I develop seamless user experiences and robust backend systems with expertise in both front-end and back-end technologies. Through my work, I deliver comprehensive and cohesive applications that bring creative ideas to life with innovative solutions.
+                Alongside production engineering, I am an active <span className="text-white font-medium">Tech Content Creator</span> and <span className="text-white font-medium">Full Stack Tutor</span>. I create educational video content and guide aspiring developers through hands-on full-stack development, breaking down complex programming concepts into practical, production-ready skills.
               </p>
             </div>
 
@@ -97,8 +100,10 @@ const About = () => {
                 "Microservices & Monoliths",
                 "IaC & CI/CD Pipelines",
                 "Cloud Architecture",
-                "Automated Testing & Monitoring",
+                "Full Stack Tutoring & Mentorship",
+                "Tech Content Creation",
                 "Database Optimization",
+                "Automated Testing & Monitoring",
                 "Agile Methodologies",
               ].map((pill, idx) => (
                 <span

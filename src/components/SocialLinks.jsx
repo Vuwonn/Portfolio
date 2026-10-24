@@ -1,8 +1,9 @@
 import React from "react";
-import { FaFacebook, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaFacebook, FaGithub, FaLinkedin, FaYoutube } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { BsFillPersonLinesFill } from "react-icons/bs";
-import resume from "../assets/resume.pdf"
+import resume from "../assets/resume.pdf";
+
 const SocialLinks = () => {
   const links = [
     {
@@ -28,13 +29,22 @@ const SocialLinks = () => {
       id: 3,
       child: (
         <>
-          Email <HiOutlineMail size={30} />
+          YouTube <FaYoutube size={30} className="text-red-500" />
         </>
       ),
-      href: "bwnchy245@gmail.com",
+      href: "https://www.youtube.com/@vuwonn",
     },
     {
       id: 4,
+      child: (
+        <>
+          Email <HiOutlineMail size={30} />
+        </>
+      ),
+      href: "mailto:bwnchy245@gmail.com",
+    },
+    {
+      id: 5,
       child: (
         <>
           Resume <BsFillPersonLinesFill size={30} />
@@ -44,10 +54,10 @@ const SocialLinks = () => {
       download: true,
     },
     {
-      id: 5,
+      id: 6,
       child: (
         <>
-          Twitter <FaFacebook size={30} />
+          Facebook <FaFacebook size={30} />
         </>
       ),
       href: "https://www.facebook.com/bwn.chy/",
@@ -56,7 +66,7 @@ const SocialLinks = () => {
   ];
 
   return (
-    <div className="hidden lg:flex flex-col top-[35%] left-0 fixed">
+    <div className="hidden lg:flex flex-col top-[28%] left-0 fixed z-50">
       <ul>
         {links.map(({ id, child, href, style, download }) => (
           <li

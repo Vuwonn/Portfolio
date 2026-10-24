@@ -1,40 +1,7 @@
 export const experienceData = [
   {
     id: 1,
-    period: "JANUARY 2026 – PRESENT (FULL-TIME)",
-    role: "Software Engineer",
-    company: "Yenya Soft Pvt. Ltd.",
-    location: "Lalitpur, Nepal",
-    bullets: [
-      "Worked on CCIMS (Centralized Citizenship Information Management System) for the Government of Nepal, Ministry of Home Affairs, supporting secure issuance and record management of citizenship data nationwide",
-      "Worked on OCR-related modules and internal government applications, extending and maintaining core features first delivered during the Softech Foundation engagement",
-      "Contributed to the Department of Industry (DOI) software by digitizing registration, monitoring, and reporting workflows",
-      "Delivered multiple ERP and financial systems covering accounting, HR, inventory, and operations",
-      "Worked on job portal applications",
-      "Worked actively across all projects, contributing to feature development, integrations, deployment, and production support",
-      "Deployed applications on custom VPS infrastructure with CI/CD using Jenkins and Docker",
-    ],
-    projects: [
-      {
-        title: "CCIMS (Centralized Citizenship Information Management System)",
-        technologies: "Node.js, PostgreSQL, Docker, Microservices, Security & Compliance",
-        link: "#",
-      },
-      {
-        title: "Department of Industry (DOI) Digital Portal",
-        technologies: "NestJS, React, PostgreSQL, Docker, CI/CD",
-        link: "#",
-      },
-      {
-        title: "Enterprise ERP & Financial Operations Platform",
-        technologies: "React, Node.js, Express, MySQL, Docker, VPS",
-        link: "#",
-      },
-    ],
-  },
-  {
-    id: 2,
-    period: "JULY 2024 – AUGUST 2025",
+    period: "OCTOBER 2025 – PRESENT",
     role: "Software Engineer",
     company: "Hub IT Group Pvt. Ltd.",
     location: "Nepal",
@@ -48,13 +15,28 @@ export const experienceData = [
     ],
     projects: [
       {
+        title: "Human Resource Management System (HRM)",
+        technologies: "NestJS, React, PostgreSQL, Docker, CI/CD",
+        link: "https://hrm.hubit.group/login",
+      },
+      {
+        title: "Surakshit Yatra Nepal Web Portal",
+        technologies: "React, Node.js, Express, PostgreSQL, Docker",
+        link: "https://surakshityatranepal.org.np/",
+      },
+      {
+        title: "Student Portal - Hub IT Training",
+        technologies: "React, NestJS, MySQL, Docker, REST APIs",
+        link: "https://hubit.com.np/loginpage",
+      },
+      {
         title: "Blood Bank ERP & Inventory Management Software",
         technologies: "NestJS, PostgreSQL, React, Docker, Jenkins, Prometheus",
         link: "#",
       },
       {
-        title: "Logistic Ride Sharing App (Sathi)",
-        technologies: "NestJS, PostgreSQL, Docker, Jenkins, Prometheus",
+        title: "National Tech & Hydro Tech Web, CMS & Backend",
+        technologies: "NestJS, React, MySQL, Node.js, Docker",
         link: "#",
       },
       {
@@ -63,13 +45,33 @@ export const experienceData = [
         link: "#",
       },
       {
-        title: "Devdaha Medical College Web, Journal & CMS Software",
-        technologies: "NestJS, MySQL, NextJS, React, Docker",
-        link: "#",
-      },
-      {
         title: "Tilottama Campus Web & CMS Software",
         technologies: "NestJS, React, MySQL, NextJS, Docker",
+        link: "#",
+      },
+    ],
+  },
+  {
+    id: 2,
+    period: "2024 – PRESENT (COMMUNITY & MENTORSHIP)",
+    role: "Full Stack Tutor & Tech Content Creator",
+    company: "YouTube & Developer Mentorship",
+    location: "Remote / Hybrid",
+    bullets: [
+      "Mentored aspiring developers and engineering students in modern Full Stack web development (JavaScript, React, Node.js, Express, PostgreSQL, MySQL, and Git)",
+      "Authored and produced educational technical video tutorials on YouTube, explaining core software design patterns, DevOps pipelines, and hands-on coding",
+      "Conducted 1-on-1 code reviews, system debugging sessions, and guided learners on best practices for building production-ready portfolio applications",
+      "Designed curriculum and practical assignments emphasizing Clean Architecture, REST APIs, database schema design, and CI/CD automated deployments",
+    ],
+    projects: [
+      {
+        title: "Full Stack Web & DevOps Educational Content",
+        technologies: "React, Node.js, Express, PostgreSQL, Docker, CI/CD, YouTube",
+        link: "https://www.youtube.com/@SmartGyanNepal-422",
+      },
+      {
+        title: "Hands-on Full Stack Mentorship & Code Reviews",
+        technologies: "MERN Stack, SQL Databases, Git, REST APIs, System Design",
         link: "#",
       },
     ],

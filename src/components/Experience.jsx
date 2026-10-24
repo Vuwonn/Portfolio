@@ -3,9 +3,9 @@ import { Link } from "react-scroll";
 import { experienceData } from "../data/experiencedata";
 
 const Experience = () => {
-  // Hub IT Group (id: 2) expanded by default as in the reference screenshot
+  // Hub IT Group (id: 1) expanded by default
   const [expandedProjects, setExpandedProjects] = useState({
-    2: true,
+    1: true,
   });
 
   const toggleProjects = (id) => {

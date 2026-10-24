@@ -22,11 +22,6 @@ const NavBar = () => {
       label: "Expertise",
     },
     {
-      id: 4,
-      link: "portfolio",
-      label: "Portfolio",
-    },
-    {
       id: 5,
       link: "experience",
       label: "Experience",
