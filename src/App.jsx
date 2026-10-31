@@ -1,30 +1,61 @@
-import NavBar from "./components/NavBar";
-import Home from "./components/Home";
-import About from "./components/About";
-import CoreExpertise from "./components/CoreExpertise";
-import Experience from "./components/Experience";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
-import SocialLinks from "./components/SocialLinks";
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import ProjectsPage from "./pages/ProjectsPage";
+import ProjectDetailPage from "./pages/ProjectDetailPage";
+import BlogPage from "./pages/BlogPage";
+import BlogPostPage from "./pages/BlogPostPage";
+import NotFoundPage from "./pages/NotFoundPage";
+import PageShell from "./components/layout/PageShell";
+import ScrollManager from "./components/layout/ScrollManager";
 
 function App() {
   return (
-    <div className="bg-[#060a12] text-slate-100 min-h-screen selection:bg-blue-500 selection:text-white">
-      <header>
-        <NavBar />
-      </header>
-      <main>
-        <Home />
-        <About />
-        <CoreExpertise />
-        <Experience />
-        <Contact />
-      </main>
-      <footer>
-        <Footer />
-      </footer>
-      <SocialLinks />
-    </div>
+    <>
+      <ScrollManager />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/projects"
+          element={
+            <PageShell>
+              <ProjectsPage />
+            </PageShell>
+          }
+        />
+        <Route
+          path="/projects/:slug"
+          element={
+            <PageShell>
+              <ProjectDetailPage />
+            </PageShell>
+          }
+        />
+        <Route
+          path="/blog"
+          element={
+            <PageShell>
+              <BlogPage />
+            </PageShell>
+          }
+        />
+        <Route
+          path="/blog/:slug"
+          element={
+            <PageShell>
+              <BlogPostPage />
+            </PageShell>
+          }
+        />
+        <Route
+          path="*"
+          element={
+            <PageShell>
+              <NotFoundPage />
+            </PageShell>
+          }
+        />
+      </Routes>
+    </>
   );
 }
 
