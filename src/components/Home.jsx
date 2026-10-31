@@ -10,7 +10,7 @@ const Home = () => {
     <>
       <SEO
         title="Bhuwan Chaudhary | Full Stack Developer"
-        description="Official portfolio of Bhuwan Chaudhary, Full Stack Developer based in Tulsipur, Nepal. Building scalable web applications with React, Node.js, and modern technologies."
+        description="Official portfolio of Bhuwan Chaudhary, Full Stack Developer based in Butwal, Nepal. Building scalable web applications with React, Node.js, and modern technologies."
         path="/"
       />
       <div

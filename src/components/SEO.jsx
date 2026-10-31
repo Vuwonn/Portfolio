@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 
 const SEO = ({
   title = "Bhuwan Chaudhary | Full Stack Developer",
-  description = "Official portfolio of Bhuwan Chaudhary, Full Stack Developer based in Tulsipur, Nepal.",
+  description = "Official portfolio of Bhuwan Chaudhary, Full Stack Developer based in Butwal, Nepal.",
   path = "",
 }) => {
   const url = `https://www.bhuwanchaudhary.com.np${path}`;
