@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-scroll";
+import { Link } from "react-router-dom";
 import { experienceData } from "../data/experiencedata";
 
 const Experience = () => {
@@ -34,10 +34,7 @@ const Experience = () => {
 
           <div className="mt-5 md:mt-0 md:absolute md:right-0">
             <Link
-              to="contact"
-              smooth
-              duration={500}
-              offset={-80}
+              to="/contact"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-blue-500/50 bg-blue-950/20 hover:bg-blue-600/25 hover:border-blue-400 text-blue-400 hover:text-white font-medium text-sm transition-all duration-300 shadow-lg shadow-blue-950/20 cursor-pointer group"
             >
               <span>Get in Touch</span>

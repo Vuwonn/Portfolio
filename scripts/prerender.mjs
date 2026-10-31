@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { build as viteBuild } from "vite";
 import { getPrerenderRoutes, SITE_URL } from "../src/seo/meta.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -9,8 +10,23 @@ const dist = path.join(root, "dist");
 const templatePath = path.join(dist, "index.html");
 
 if (!fs.existsSync(templatePath)) {
-  throw new Error("dist/index.html not found. Run vite build first.");
+  throw new Error("dist/index.html not found. Run client build first.");
 }
+
+// 1. Build SSR bundle
+console.log("Building SSR bundle with Vite...");
+const ssrOutDir = path.join(dist, ".server-temp");
+await viteBuild({
+  build: {
+    ssr: path.join(root, "src", "entry-server.jsx"),
+    outDir: ssrOutDir,
+    emptyOutDir: true,
+  },
+  logLevel: "warn",
+});
+
+const serverEntryPath = path.join(ssrOutDir, "entry-server.js");
+const { render } = await import(`file://${serverEntryPath.replace(/\\/g, "/")}`);
 
 const template = fs.readFileSync(templatePath, "utf8");
 const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -95,7 +111,8 @@ const imageSize = (url) => {
   return null;
 };
 
-const renderHtml = (meta) => {
+const renderHtml = (route) => {
+  const meta = route.meta;
   let html = template;
   html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${meta.title}</title>`);
   html = replaceAttr(html, "name", "title", meta.title);
@@ -130,26 +147,39 @@ const renderHtml = (meta) => {
     );
   }
 
+  // Inject prerendered React HTML markup into <div id="root"></div>
+  const appHtml = render(route.path);
+  html = html.replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`);
+
   return html;
 };
 
 const routes = getPrerenderRoutes();
 
 for (const route of routes) {
-  const outputDir = path.join(dist, route.path);
+  const outputDir = path.join(dist, route.path === "/" ? "" : route.path);
   fs.mkdirSync(outputDir, { recursive: true });
-  fs.writeFileSync(path.join(outputDir, "index.html"), renderHtml(route.meta));
+  fs.writeFileSync(path.join(outputDir, "index.html"), renderHtml(route));
 }
 
+// 404.html page for hosting
+const notFoundHtml = template
+  .replace(/<title>[\s\S]*?<\/title>/, "<title>Page Not Found | Bhuwan Chaudhary</title>")
+  .replace(
+    '<div id="root"></div>',
+    `<div id="root">${render("/404-not-found")}</div>`
+  );
+fs.writeFileSync(path.join(dist, "404.html"), notFoundHtml);
+
+// Clean up temporary SSR bundle
+fs.rmSync(ssrOutDir, { recursive: true, force: true });
+
 const today = new Date().toISOString().slice(0, 10);
-const sitemapRoutes = [
-  { loc: `${SITE_URL}/`, priority: "1.0", changefreq: "monthly" },
-  ...routes.map((route) => ({
-    loc: `${SITE_URL}${route.path}`,
-    priority: "0.8",
-    changefreq: "monthly",
-  })),
-];
+const sitemapRoutes = routes.map((route) => ({
+  loc: route.path === "/" ? `${SITE_URL}/` : `${SITE_URL}${route.path}`,
+  priority: route.path === "/" ? "1.0" : "0.8",
+  changefreq: "monthly",
+}));
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

@@ -208,8 +208,163 @@ export function buildBlogIndexMeta() {
   };
 }
 
+export function buildAboutMeta() {
+  const canonical = `${SITE_URL}/about`;
+  const description =
+    "Learn about Bhuwan Chaudhary, a Full Stack Software Engineer and DevOps enthusiast based in Butwal, Nepal, building scalable applications and cloud infrastructure.";
+  const breadcrumbs = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+  ];
+
+  return {
+    title: `About | ${PERSON_NAME}`,
+    description,
+    canonical,
+    ogType: "website",
+    image: DEFAULT_OG_IMAGE,
+    imageWidth: 1248,
+    imageHeight: 832,
+    imageAlt: "About Bhuwan Chaudhary",
+    jsonLd: [
+      {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "@id": `${canonical}#about-page`,
+        url: canonical,
+        name: `About ${PERSON_NAME}`,
+        description,
+        mainEntity: personRef,
+        inLanguage: "en",
+      },
+      breadcrumbLd(breadcrumbs),
+    ],
+    breadcrumbs,
+  };
+}
+
+export function buildExpertiseMeta() {
+  const canonical = `${SITE_URL}/expertise`;
+  const description =
+    "Explore Bhuwan Chaudhary's technical expertise across full stack development, DevOps, cloud architecture, databases, security, networking, and system design.";
+  const breadcrumbs = [
+    { name: "Home", path: "/" },
+    { name: "Expertise", path: "/expertise" },
+  ];
+
+  return {
+    title: `Expertise | ${PERSON_NAME}`,
+    description,
+    canonical,
+    ogType: "website",
+    image: DEFAULT_OG_IMAGE,
+    imageWidth: 1248,
+    imageHeight: 832,
+    imageAlt: "Bhuwan Chaudhary technical expertise",
+    jsonLd: [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${canonical}#expertise`,
+        url: canonical,
+        name: `Expertise | ${PERSON_NAME}`,
+        description,
+        mainEntity: personRef,
+        about: [
+          "Full Stack Development",
+          "DevOps",
+          "Cloud Architecture",
+          "Databases",
+          "Security",
+          "Networking",
+          "System Design",
+        ],
+        inLanguage: "en",
+      },
+      breadcrumbLd(breadcrumbs),
+    ],
+    breadcrumbs,
+  };
+}
+
+export function buildExperienceMeta() {
+  const canonical = `${SITE_URL}/experience`;
+  const description =
+    "Review Bhuwan Chaudhary's professional experience as a full stack developer working on enterprise software, ERP systems, and web applications.";
+  const breadcrumbs = [
+    { name: "Home", path: "/" },
+    { name: "Experience", path: "/experience" },
+  ];
+
+  return {
+    title: `Experience | ${PERSON_NAME}`,
+    description,
+    canonical,
+    ogType: "website",
+    image: DEFAULT_OG_IMAGE,
+    imageWidth: 1248,
+    imageHeight: 832,
+    imageAlt: "Bhuwan Chaudhary professional experience",
+    jsonLd: [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${canonical}#experience`,
+        url: canonical,
+        name: `Experience | ${PERSON_NAME}`,
+        description,
+        mainEntity: personRef,
+        about: "Software Engineering",
+        inLanguage: "en",
+      },
+      breadcrumbLd(breadcrumbs),
+    ],
+    breadcrumbs,
+  };
+}
+
+export function buildContactMeta() {
+  const canonical = `${SITE_URL}/contact`;
+  const description =
+    "Get in touch with Bhuwan Chaudhary for full stack development work, technical collaboration, or professional opportunities.";
+  const breadcrumbs = [
+    { name: "Home", path: "/" },
+    { name: "Contact", path: "/contact" },
+  ];
+
+  return {
+    title: `Contact | ${PERSON_NAME}`,
+    description,
+    canonical,
+    ogType: "website",
+    image: DEFAULT_OG_IMAGE,
+    imageWidth: 1248,
+    imageHeight: 832,
+    imageAlt: "Contact Bhuwan Chaudhary",
+    jsonLd: [
+      {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "@id": `${canonical}#contact-page`,
+        url: canonical,
+        name: `Contact ${PERSON_NAME}`,
+        description,
+        mainEntity: personRef,
+        inLanguage: "en",
+      },
+      breadcrumbLd(breadcrumbs),
+    ],
+    breadcrumbs,
+  };
+}
+
 export function getPrerenderRoutes() {
   return [
+    { path: "/", meta: HOME_META },
+    { path: "/about", meta: buildAboutMeta() },
+    { path: "/expertise", meta: buildExpertiseMeta() },
+    { path: "/experience", meta: buildExperienceMeta() },
+    { path: "/contact", meta: buildContactMeta() },
     { path: "/projects", meta: buildProjectsIndexMeta() },
     ...projects.map((project) => ({
       path: `/projects/${project.slug}`,

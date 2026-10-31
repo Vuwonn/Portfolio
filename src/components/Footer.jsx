@@ -8,6 +8,18 @@ function Footer() {
           <Link to="/" className="transition-colors hover:text-blue-400">
             Home
           </Link>
+          <Link to="/about" className="transition-colors hover:text-blue-400">
+            About
+          </Link>
+          <Link to="/expertise" className="transition-colors hover:text-blue-400">
+            Expertise
+          </Link>
+          <Link to="/experience" className="transition-colors hover:text-blue-400">
+            Experience
+          </Link>
+          <Link to="/contact" className="transition-colors hover:text-blue-400">
+            Contact
+          </Link>
           <Link to="/projects" className="transition-colors hover:text-blue-400">
             Projects
           </Link>

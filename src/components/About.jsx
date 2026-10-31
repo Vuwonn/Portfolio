@@ -1,6 +1,5 @@
-import HeroImage from "../assets/heroImage.png";
 import { HiOutlineDownload } from "react-icons/hi";
-import { Link } from "react-scroll";
+import { Link } from "react-router-dom";
 import resume from "../assets/resume.pdf";
 
 const About = () => {
@@ -50,31 +49,8 @@ const About = () => {
         </div>
 
         {/* ============ MAIN ABOUT ME CONTENT ============ */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          
-          {/* LEFT: IMAGE SECTION */}
-          <div className="lg:col-span-5 flex justify-center">
-            <div className="relative group w-full max-w-sm sm:max-w-md">
-              {/* Backing decorative frame with offset */}
-              <div className="absolute -inset-2 bg-gradient-to-tr from-blue-700/40 via-indigo-600/30 to-cyan-500/20 rounded-3xl blur-sm opacity-60 group-hover:opacity-100 transition duration-500"></div>
-              
-              <div className="relative rounded-3xl bg-gradient-to-b from-[#1b2a4e] to-[#121c36] p-4 sm:p-5 border border-slate-700/70 shadow-2xl overflow-hidden">
-                <div className="rounded-2xl bg-[#0a1020]/60 p-2 sm:p-3 flex items-center justify-center">
-                  <img
-                    src={HeroImage}
-                    alt="Bhuwan Chaudhary - Full Stack Developer"
-                    width="400"
-                    height="400"
-                    loading="lazy"
-                    className="w-full h-auto object-cover rounded-xl filter drop-shadow-xl group-hover:scale-[1.02] transition duration-300"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* RIGHT: TEXT SECTION */}
-          <div className="lg:col-span-7 flex flex-col justify-center">
+        <div className="max-w-4xl">
+          <div className="flex flex-col justify-center">
             <div className="mb-4">
               <span className="text-blue-400 font-semibold text-sm tracking-wider uppercase">
                 Who I Am
@@ -129,9 +105,7 @@ const About = () => {
               </a>
 
               <Link
-                to="contact"
-                smooth
-                duration={500}
+                to="/contact"
                 className="px-6 py-3 rounded-xl border border-slate-700 hover:border-slate-500 bg-slate-800/60 hover:bg-slate-700/60 text-slate-200 font-medium cursor-pointer transition duration-200"
               >
                 Get In Touch

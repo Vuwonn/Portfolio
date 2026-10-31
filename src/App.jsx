@@ -1,5 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import ExpertisePage from "./pages/ExpertisePage";
+import ExperiencePage from "./pages/ExperiencePage";
+import ContactPage from "./pages/ContactPage";
 import ProjectsPage from "./pages/ProjectsPage";
 import ProjectDetailPage from "./pages/ProjectDetailPage";
 import BlogPage from "./pages/BlogPage";
@@ -14,6 +18,38 @@ function App() {
       <ScrollManager />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route
+          path="/about"
+          element={
+            <PageShell>
+              <AboutPage />
+            </PageShell>
+          }
+        />
+        <Route
+          path="/expertise"
+          element={
+            <PageShell>
+              <ExpertisePage />
+            </PageShell>
+          }
+        />
+        <Route
+          path="/experience"
+          element={
+            <PageShell>
+              <ExperiencePage />
+            </PageShell>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <PageShell>
+              <ContactPage />
+            </PageShell>
+          }
+        />
         <Route
           path="/projects"
           element={

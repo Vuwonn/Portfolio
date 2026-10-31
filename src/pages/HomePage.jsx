@@ -1,9 +1,5 @@
 import NavBar from "../components/NavBar";
 import Home from "../components/Home";
-import About from "../components/About";
-import CoreExpertise from "../components/CoreExpertise";
-import Experience from "../components/Experience";
-import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import SocialLinks from "../components/SocialLinks";
 import FeaturedProjects from "../components/home/FeaturedProjects";
@@ -17,12 +13,8 @@ const HomePage = () => {
       </header>
       <main>
         <Home />
-        <About />
-        <CoreExpertise />
-        <Experience />
         <FeaturedProjects />
         <LatestPosts />
-        <Contact />
       </main>
       <footer>
         <Footer />
