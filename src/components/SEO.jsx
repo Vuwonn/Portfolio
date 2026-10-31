@@ -5,7 +5,7 @@ const SEO = ({
   description = "Official portfolio of Bhuwan Chaudhary, Full Stack Developer based in Tulsipur, Nepal.",
   path = "",
 }) => {
-  const url = `https://bhuwanchaudhary.com.np${path}`;
+  const url = `https://www.bhuwanchaudhary.com.np${path}`;
 
   return (
     <Helmet>
